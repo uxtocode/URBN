@@ -5,7 +5,7 @@ const Home = () => {
         <>
             <section className="relative bg-black overflow-hidden text-white">
                 {/* Hero Background Video */}
-                <div className="relative h-[65vh] md:h-[85vh] w-full">
+                <div className="relative h-[80vh] md:h-[85vh] w-full">
                     <video
                         className="absolute inset-0 w-full h-full object-cover scale-105 brightness-[0.6]"
                         src="./bgvideo.webm"

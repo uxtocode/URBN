@@ -151,7 +151,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bg-gray-50 pt-4 pb-10 md:mb-0">
+            <section className="bg-gray-50 pt-4 pb-4 md:pb-0">
                 <img src="./before_footer.png" className='w-full md:aspect-video aspect-[3/4] object-cover' alt="" />
             </section>
         </>

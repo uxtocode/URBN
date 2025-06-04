@@ -87,9 +87,19 @@ const Home = () => {
             </section>
 
             {/* New Arrivals Section */}
-            <section className="bg-gray-50 pt-4 md:pt-6">
-                <div className="px-4 sm:px-8 md:py-6 pt-6 pb-4">
-                    <h2 className="text-lg md:text-2xl font-medium md:font-bold text-gray-900 mb-2 md:mb-0">NEW ARRIVALS</h2>
+            <section className="bg-gray-50 my-10">
+                <div className="px-4 sm:px-8 pt-6 md:py-8">
+
+                    {/* Headline */}
+                    <div className='flex flex-col gap-2 mb-4 md:mb-6'>
+                        <h1 className="text-2xl md:text-4xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
+                            NEW ARRIVALS
+                        </h1>
+                        <p className='text-gray-500 text-sm'>Fresh styles just dropped — discover what’s trending now.
+                        </p>
+                    </div>
+
+                    {/* New Arrivals Grid */}
                     <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
                             <img
@@ -104,9 +114,15 @@ const Home = () => {
             </section>
 
             {/* Shop by Category Section */}
-            <section className="bg-gray-50 md:py-6">
-                <div className="py-6">
-                    <h2 className="px-4 sm:px-8 text-lg md:text-2xl font-medium md:font-bold text-gray-900 mb-6 md:mb-8">SHOP BY CATEGORY</h2>
+            <section className="bg-gray-50 mb-10">
+                <div className="px-4 sm:px-8 py-6 md:py-8">
+                    {/* Headline */}
+                    <div className='flex flex-col gap-2 mb-8 md:mb-10'>
+                        <h1 className="text-2xl md:text-4xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
+                            SHOP BY CATEGORY
+                        </h1>
+                        <p className='text-gray-500 text-sm'>Explore by category for effortless shopping.</p>
+                    </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
                         {[
                             { name: 'TOPS', image: './tops.avif' },
@@ -124,7 +140,7 @@ const Home = () => {
                                             className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
                                         />
                                     </div>
-                                    <div className='px-4 sm:px-6 py-4 flex flex-col gap-1'>
+                                    <div className='px-2 py-4 flex flex-col gap-1'>
                                         <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
                                         <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
                                     </div>
@@ -135,7 +151,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bg-gray-50 pb-4">
+            <section className="bg-gray-50">
                 <img src="./before_footer.png" className='w-full md:aspect-video aspect-[3/4] object-cover' alt="" />
             </section>
         </>

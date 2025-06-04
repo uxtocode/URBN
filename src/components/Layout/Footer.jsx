@@ -55,10 +55,10 @@ const Footer = () => {
                   <h3 className="font-semibold text-black uppercase tracking-wide">
                     {section.title}
                   </h3>
-                  <span className="md:hidden text-xl">{isOpen ? '−' : '+'}</span>
+                  <span className="md:hidden text-2xl">{isOpen ? '−' : '+'}</span>
                 </button>
                 <ul
-                  className={`mt-2 space-y-3 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'
+                  className={`mt-2 space-y-4 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'
                     } md:max-h-full md:mt-4`}
                 >
                   {section.links.map((link, linkIndex) => (

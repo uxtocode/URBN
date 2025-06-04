@@ -87,7 +87,7 @@ const Home = () => {
             </section>
 
             {/* New Arrivals Section */}
-            <section className="bg-gray-50 md:pt-6">
+            <section className="bg-gray-50 pt-4 md:pt-6">
                 <div className="px-4 sm:px-8 md:py-6 pt-6 pb-4">
                     <h2 className="text-lg md:text-2xl font-medium md:font-semibold text-gray-900 mb-2 md:mb-4">NEW ARRIVALS</h2>
                     <div className="grid grid-cols-3 md:grid-cols-6 gap-4">

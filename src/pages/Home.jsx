@@ -87,7 +87,7 @@ const Home = () => {
             </section>
 
             {/* New Arrivals Section */}
-            <section className="bg-gray-50 my-10">
+            <section className="bg-gray-50 py-10">
                 <div className="px-4 sm:px-8 pt-6 md:py-8">
 
                     {/* Headline */}
@@ -151,7 +151,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bg-gray-50 mt-4 pb-10 md:mb-0">
+            <section className="bg-gray-50 pt-4 pb-10 md:mb-0">
                 <img src="./before_footer.png" className='w-full md:aspect-video aspect-[3/4] object-cover' alt="" />
             </section>
         </>

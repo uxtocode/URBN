@@ -114,7 +114,7 @@ const Home = () => {
             </section>
 
             {/* Shop by Category Section */}
-            <section className="bg-gray-50 mb-10">
+            <section className="bg-gray-50">
                 <div className="px-4 sm:px-8 py-6 md:py-8">
                     {/* Headline */}
                     <div className='flex flex-col gap-2 mb-8 md:mb-10'>
@@ -151,7 +151,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bg-gray-50">
+            <section className="bg-gray-50 mt-4 pb-10 md:mb-0">
                 <img src="./before_footer.png" className='w-full md:aspect-video aspect-[3/4] object-cover' alt="" />
             </section>
         </>

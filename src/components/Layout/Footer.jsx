@@ -1,3 +1,4 @@
+import React from 'react';
 const Footer = () => {
   const footerSections = [
     {
@@ -40,27 +41,41 @@ const Footer = () => {
     <footer className="bg-gray-50 pt-6 md:pt-12 pb-8">
       <div className="mx-auto px-4 sm:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-12">
           {/* Footer Sections */}
-          {footerSections.map((section, index) => (
-            <div key={index} className="space-y-4">
-              <h3 className="font-semibold text-black uppercase tracking-wide">
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <a
-                      href="#"
-                      className="text-sm text-gray-700 hover:text-black transition-colors duration-200 cursor-pointer"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {footerSections.map((section, index) => {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+              <div key={index} className="border-b border-gray-200 pb-2 md:border-none md:pb-0">
+                <button
+                  className="w-full flex justify-between items-center md:cursor-default"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  <h3 className="font-semibold text-black uppercase tracking-wide">
+                    {section.title}
+                  </h3>
+                  <span className="md:hidden text-xl">{isOpen ? '−' : '+'}</span>
+                </button>
+                <ul
+                  className={`mt-2 space-y-3 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'
+                    } md:max-h-full md:mt-4`}
+                >
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a
+                        href="#"
+                        className="text-sm text-gray-700 hover:text-black transition-colors duration-200 cursor-pointer"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+
 
           {/* Newsletter Signup */}
           <div className="space-y-4">

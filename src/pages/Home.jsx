@@ -19,7 +19,7 @@ const Home = () => {
 
                 {/* Floating Hero Content */}
                 <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full max-w-7xl gap-4">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-4">
                         {/* Headline */}
                         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent text-left">
                             SUMMER COLLECTION
@@ -89,7 +89,7 @@ const Home = () => {
             {/* New Arrivals Section */}
             <section className="bg-gray-50 pt-4 md:pt-6">
                 <div className="px-4 sm:px-8 md:py-6 pt-6 pb-4">
-                    <h2 className="text-lg md:text-2xl font-medium md:font-semibold text-gray-900 mb-2 md:mb-4">NEW ARRIVALS</h2>
+                    <h2 className="text-lg md:text-2xl font-medium md:font-bold text-gray-900 mb-2 md:mb-0">NEW ARRIVALS</h2>
                     <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
                             <img

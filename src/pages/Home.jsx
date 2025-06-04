@@ -77,7 +77,7 @@ const Home = () => {
                                             className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
                                         />
                                     </div>
-                                    <div className='px-2 py-4 flex flex-col gap-1'>
+                                    <div className='px-0 md:px-2 py-4 flex flex-col gap-1'>
                                         <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
                                         <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
                                     </div>
@@ -140,7 +140,7 @@ const Home = () => {
                                             className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
                                         />
                                     </div>
-                                    <div className='px-2 py-4 flex flex-col gap-1'>
+                                    <div className='px-0 md:px-2 py-4 flex flex-col gap-1'>
                                         <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
                                         <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
                                     </div>

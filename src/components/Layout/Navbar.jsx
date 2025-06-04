@@ -250,8 +250,8 @@ const Navbar = () => {
                         setIsMobileMenuOpen(false);
                         setExpandedCategory(null);
                       }}
-                      className={`transition-colors duration-200 ${activeTab === link.name
-                        ? "text-black font-medium"
+                      className={`transition-colors text-sm font-medium duration-200 ${activeTab === link.name
+                        ? "text-black font-semibold"
                         : "text-gray-600 hover:text-black"
                         }`}
                     >

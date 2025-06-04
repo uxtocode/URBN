@@ -18,7 +18,7 @@ const Home = () => {
                 </div>
 
                 {/* Floating Hero Content */}
-                <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center">
+                <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full max-w-7xl gap-4">
                         {/* Headline */}
                         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent text-left">
@@ -29,17 +29,17 @@ const Home = () => {
                         <div className="w-auto">
                             <a
                                 href="/shop"
-                                className="inline-flex items-center justify-center px-8 py-4 text-md sm:text-lg font-semibold rounded-2xl bg-gray-50 text-black hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
+                                className="inline-flex items-center justify-center px-6.5 py-3.5 text-md sm:text-lg font-semibold bg-gray-50 text-black hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
                             >
                                 Shop Now
                                 <svg
-                                    className="ml-3 w-5 h-5"
+                                    className="ml-2.5 w-5 h-5"
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth={2.5}
                                     viewBox="0 0 24 24"
                                 >
-                                    <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg>
                             </a>
                         </div>
@@ -51,37 +51,92 @@ const Home = () => {
 
             </section>
 
-            <section className=" bg-gray-50">
-                {/* 2 images */}
+            {/* Featured Collections Section */}
+            <section className="bg-gray-50">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0">
-                    <div className='cursor-pointer'>
-                        <div className='group overflow-hidden '>
+                    {/* NEW POITIC Collection */}
+                    <div className='group cursor-pointer'>
+                        <div className='overflow-hidden'>
                             <img
                                 src="./hero1.jpeg"
-                                alt="Image 1"
-                                className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-500"
+                                alt="New Poitic Collection"
+                                className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
                             />
                         </div>
                         <div className='px-4 sm:px-8 py-4 flex justify-between items-center'>
-                            <p className='font-semibold text-xl'>NEW POITIC</p>
-                            <a href="/" className='underline'>SHOP NOW</a>
+                            <p className='text-sm md:text-lg'>NEW POITIC</p>
+                            <a href="/" className='group-hover:underline text-xs md:text-sm'>SHOP NOW</a>
                         </div>
                     </div>
 
-                    <div className='cursor-pointer'>
-                        <div className='group overflow-hidden '>
+                    {/* SARTORIAL EDIT Collection */}
+                    <div className='group cursor-pointer'>
+                        <div className='overflow-hidden'>
                             <img
                                 src="./hero2.jpeg"
-                                alt="Image 1"
-                                className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-500"
+                                alt="Sartorial Edit Collection"
+                                className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
                             />
                         </div>
                         <div className='px-4 sm:px-8 py-4 flex justify-between items-center'>
-                            <p className='font-semibold text-xl'>SARTORIAL EDIT</p>
-                            <a href="/" className='underline'>SHOP NOW</a>
+                            <p className='text-sm md:text-lg'>SARTORIAL EDIT</p>
+                            <a href="/" className='group-hover:underline text-xs md:text-sm'>SHOP NOW</a>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            {/* New Arrivals Section */}
+            <section className="bg-gray-50 md:pt-6">
+                <div className="px-4 sm:px-8 md:py-6 pt-6 pb-4">
+                    <h2 className="text-lg md:text-2xl font-medium md:font-semibold text-gray-900 mb-2 md:mb-4">NEW ARRIVALS</h2>
+                    <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
+                            <img
+                                key={item}
+                                src={`./` + item + `.avif`}
+                                alt={`New arrival ${item}`}
+                                className='cursor-pointer hover:opacity-90 transition-opacity duration-300'
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Shop by Category Section */}
+            <section className="bg-gray-50 md:py-6">
+                <div className="py-6">
+                    <h2 className="px-4 sm:px-8 text-lg md:text-2xl font-medium md:font-bold text-gray-900 mb-6 md:mb-8">SHOP BY CATEGORY</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
+                        {[
+                            { name: 'TOPS', image: './tops.avif' },
+                            { name: 'TROUSERS', image: './trousers.avif' },
+                            { name: 'DRESS', image: './dress.avif' },
+                            { name: 'SHOES', image: './shoes.avif' }
+                        ].map((category) => (
+                            <div key={category.name} className='cursor-pointer'>
+                                {/* Category Card */}
+                                <div className='group cursor-pointer'>
+                                    <div className='overflow-hidden'>
+                                        <img
+                                            src={category.image}
+                                            alt={category.name}
+                                            className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
+                                        />
+                                    </div>
+                                    <div className='px-4 sm:px-6 py-4 flex flex-col gap-1'>
+                                        <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
+                                        <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="bg-gray-50 pb-4">
+                <img src="./before_footer.png" className='w-full md:aspect-video aspect-[3/4] object-cover' alt="" />
             </section>
         </>
     )

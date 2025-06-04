@@ -57,6 +57,11 @@ const Navbar = () => {
 
   const navLinks = [
     {
+      name: "COLLECTIONS",
+      href: "#collections",
+      subcategories: ["Summer", "Winter", "Spring", "Fall", "Accessories", "Sale"]
+    },
+    {
       name: "LADIES",
       href: "#ladies",
       subcategories: ["Dresses", "Tops", "Jeans", "Shoes", "Bags", "Accessories"]
@@ -70,11 +75,6 @@ const Navbar = () => {
       name: "KIDS",
       href: "#kids",
       subcategories: ["Boys", "Girls", "Baby", "Shoes", "School Wear", "Toys"]
-    },
-    {
-      name: "HOME",
-      href: "#home",
-      subcategories: ["Furniture", "Decor", "Kitchen", "Bedroom", "Lighting", "Storage"]
     }
   ];
 
@@ -132,7 +132,7 @@ const Navbar = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`cursor-pointer transition-colors duration-200 hover:text-black ${activeTab === link.name
-                    ? "text-black border-b-2 border-black pb-1"
+                    ? "text-black"
                     : "text-gray-500"
                     }`}
                 >

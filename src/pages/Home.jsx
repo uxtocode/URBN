@@ -18,7 +18,7 @@ const Home = () => {
                 </div>
 
                 {/* Floating Hero Content */}
-                <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
+                <div className="absolute bottom-0 left-1 sm:left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-4">
                         {/* Headline */}
                         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent text-left">
@@ -52,46 +52,47 @@ const Home = () => {
             </section>
 
             {/* Featured Collections Section */}
-            <section className="bg-gray-50">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0">
-                    {/* NEW POITIC Collection */}
-                    <div className='group cursor-pointer'>
-                        <div className='overflow-hidden'>
-                            <img
-                                src="./hero1.jpeg"
-                                alt="New Poitic Collection"
-                                className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
-                            />
-                        </div>
-                        <div className='px-4 sm:px-8 py-4 flex justify-between items-center'>
-                            <p className='md:text-lg'>NEW POITIC</p>
-                            <a href="/" className='group-hover:underline text-sm'>SHOP NOW</a>
-                        </div>
+            <section className="bg-gray-50 pt-8">
+                <div className="px-4 sm:px-8 pt-6 md:py-8">
+                    <div className='flex flex-col gap-2 mb-6 md:mb-8'>
+                        <h1 className="text-2xl md:text-4xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
+                            FEATURED COLLECTIONS
+                        </h1>
+                        <p className='text-gray-500 text-sm'>Explore by category for effortless shopping.</p>
                     </div>
-
-                    {/* SARTORIAL EDIT Collection */}
-                    <div className='group cursor-pointer'>
-                        <div className='overflow-hidden'>
-                            <img
-                                src="./hero2.jpeg"
-                                alt="Sartorial Edit Collection"
-                                className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
-                            />
-                        </div>
-                        <div className='px-4 sm:px-8 py-4 flex justify-between items-center'>
-                            <p className='md:text-lg'>SARTORIAL EDIT</p>
-                            <a href="/" className='group-hover:underline text-sm'>SHOP NOW</a>
-                        </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
+                        {[
+                            { name: 'TOPS', image: './tops.avif' },
+                            { name: 'TROUSERS', image: './trousers.avif' },
+                            { name: 'DRESS', image: './dress.avif' },
+                            { name: 'SHOES', image: './shoes.avif' }
+                        ].map((category) => (
+                            <div key={category.name} className='cursor-pointer'>
+                                {/* Category Card */}
+                                <div className='group cursor-pointer'>
+                                    <div className='overflow-hidden'>
+                                        <img
+                                            src={category.image}
+                                            alt={category.name}
+                                            className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-all ease-in-out duration-300"
+                                        />
+                                    </div>
+                                    <div className='px-2 py-4 flex flex-col gap-1'>
+                                        <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
+                                        <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* New Arrivals Section */}
-            <section className="bg-gray-50 py-10">
+            <section className="bg-gray-50 pt-8 md:pt-2">
                 <div className="px-4 sm:px-8 pt-6 md:py-8">
-
                     {/* Headline */}
-                    <div className='flex flex-col gap-2 mb-4 md:mb-6'>
+                    <div className='flex flex-col gap-2 mb-6 md:mb-8'>
                         <h1 className="text-2xl md:text-4xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
                             NEW ARRIVALS
                         </h1>
@@ -114,10 +115,9 @@ const Home = () => {
             </section>
 
             {/* Shop by Category Section */}
-            <section className="bg-gray-50">
-                <div className="px-4 sm:px-8 py-6 md:py-8">
-                    {/* Headline */}
-                    <div className='flex flex-col gap-2 mb-8 md:mb-10'>
+            <section className="bg-gray-50 pt-8 pb-4">
+                <div className="px-4 sm:px-8 pt-2 md:py-8">
+                    <div className='flex flex-col gap-2 mb-6 md:mb-8'>
                         <h1 className="text-2xl md:text-4xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
                             SHOP BY CATEGORY
                         </h1>
@@ -151,7 +151,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bg-gray-50 pt-4 pb-4 md:pb-0">
+            <section className="bg-gray-50">
                 <img src="./before_footer.png" className='w-full md:aspect-video aspect-[3/4] object-cover' alt="" />
             </section>
         </>

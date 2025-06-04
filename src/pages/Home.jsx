@@ -33,7 +33,7 @@ const Home = () => {
                             >
                                 Shop Now
                                 <svg
-                                    className="ml-2.5 w-4 md:w-5 md:h-5"
+                                    className="ml-2 md:ml-2.5 w-4 md:w-5 md:h-5"
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth={2.5}

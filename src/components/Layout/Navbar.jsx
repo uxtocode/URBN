@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("MEN");
   const [expandedCategory, setExpandedCategory] = useState(null);
-  const [hoveredCategory, setHoveredCategory] = useState(null);
   const searchRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
@@ -183,7 +182,7 @@ const Navbar = () => {
 
             {/* Heart - Hidden on small screens */}
             <Heart
-              className="hidden sm:block w-5 h-5 cursor-pointer text-gray-600 hover:text-black transition-colors duration-200"
+              className="w-5 h-5 cursor-pointer text-gray-600 hover:text-black transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 

@@ -33,7 +33,7 @@ const Home = () => {
                             >
                                 Shop Now
                                 <svg
-                                    className="ml-2.5 w-5 h-5"
+                                    className="ml-2.5 w-4 md:w-5 md:h-5"
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth={2.5}
@@ -64,8 +64,8 @@ const Home = () => {
                             />
                         </div>
                         <div className='px-4 sm:px-8 py-4 flex justify-between items-center'>
-                            <p className='text-sm md:text-lg'>NEW POITIC</p>
-                            <a href="/" className='group-hover:underline text-xs md:text-sm'>SHOP NOW</a>
+                            <p className='md:text-lg'>NEW POITIC</p>
+                            <a href="/" className='group-hover:underline text-sm'>SHOP NOW</a>
                         </div>
                     </div>
 
@@ -79,8 +79,8 @@ const Home = () => {
                             />
                         </div>
                         <div className='px-4 sm:px-8 py-4 flex justify-between items-center'>
-                            <p className='text-sm md:text-lg'>SARTORIAL EDIT</p>
-                            <a href="/" className='group-hover:underline text-xs md:text-sm'>SHOP NOW</a>
+                            <p className='md:text-lg'>SARTORIAL EDIT</p>
+                            <a href="/" className='group-hover:underline text-sm'>SHOP NOW</a>
                         </div>
                     </div>
                 </div>

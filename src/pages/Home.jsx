@@ -54,25 +54,32 @@ const Home = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10" />
 
                     {/* Video Controls */}
-                    <div className="absolute top-6 right-6 z-30 flex gap-3">
+                    <div className="absolute top-6 right-4 md:top-8 md:right-8 z-30 flex items-center justify-start gap-3">
                         <button
                             onClick={toggleVideo}
-                            className="p-2 bg-black/50 backdrop-blur-sm rounded-full hover:bg-black/70 transition-all duration-300 group"
+                            className="group bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300"
                         >
                             {isVideoPlaying ? (
-                                <Pause className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
+                                </svg>
                             ) : (
-                                <Play className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 ml-[2px]">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                                </svg>
                             )}
                         </button>
                         <button
                             onClick={toggleMute}
-                            className="p-2 bg-black/50 backdrop-blur-sm rounded-full hover:bg-black/70 transition-all duration-300 group"
-                        >
+                            className="group bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300"                      >
                             {isMuted ? (
-                                <VolumeX className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                                </svg>
                             ) : (
-                                <Volume2 className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                                </svg>
                             )}
                         </button>
                     </div>
@@ -84,8 +91,8 @@ const Home = () => {
                                 }`}
                         >
                             <div className="space-y-2 flex flex-wrap items-end gap-4 justify-between">
-                                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight leading-[0.9]">
-                                    <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent animate-pulse">
+                                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight md:leading-[0.9]">
+                                    <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
                                         SUMMER
                                     </span>
                                     <span className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
@@ -93,12 +100,15 @@ const Home = () => {
                                     </span>
                                 </h1>
 
-                                <button className='mb-3'>
+                                <button className='md:mb-3'>
                                     <a
                                         href="/shop"
-                                        className="inline-block px-8 py-4 bg-white text-gray-900 font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+                                        className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
                                     >
                                         SHOP NOW
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5 ml-2">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                        </svg>
                                     </a>
                                 </button>
                             </div>

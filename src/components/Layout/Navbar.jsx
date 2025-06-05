@@ -117,7 +117,7 @@ const Navbar = () => {
           </div>
 
           {/* Center Navigation Links - Desktop Only */}
-          <div className="hidden md:flex gap-8 lg:gap-10 text-[15px] font-medium relative">
+          <div className="hidden md:flex gap-8 lg:gap-10 text-[15px] relative">
             {navLinks.map((link) => (
               <div
                 key={link.name}

@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Heart } from 'lucide-react';
+
 
 const sampleProducts = [
     {
@@ -153,23 +155,34 @@ export default function CollectionDetail() {
                     </div>
 
                     {/* Product Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 space-y-4">
                         {sortedProducts.map((product) => (
                             <div
                                 key={product.id}
-                                className="cursor-pointer"
+                                className="cursor-pointer group"
                                 onClick={() => handleProductClick(product)}
                             >
-                                <div className="overflow-hidden rounded-md mb-2">
+                                <div className="relative overflow-hidden rounded-md mb-4">
                                     <img
                                         src={product.image}
                                         alt={product.title}
-                                        className="w-full aspect-[3/4] object-cover transition-transform duration-300 hover:scale-105"
+                                        className="w-full aspect-[3/4] object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
+                                    {/* Heart icon */}
+                                    {/* <button
+                                        className="absolute top-4 right-5 z-10 p-1"
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // Prevent triggering card click
+                                            console.log('Heart clicked:', product.id);
+                                        }}
+                                    >
+                                        <Heart className="w-5 h-5 text-red-500" />
+                                    </button> */}
                                 </div>
-                                <h2 className="text-sm font-semibold line-clamp-1">{product.title}</h2>
-                                <p className="text-gray-600 mt-1">${product.price.toFixed(2)}</p>
-                            </div>
+
+                                <h2 className="text-base sm:text-lg font-semibold line-clamp-1">{product.title}</h2>
+                                <p className="text-sm sm:text-base text-gray-600 mt-1">${Number(product.price).toFixed(2)}</p>
+                          </div>
                         ))}
                     </div>
                 </div>

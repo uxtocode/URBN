@@ -1,57 +1,112 @@
-import React from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react'
 
 const Home = () => {
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [isMuted, setIsMuted] = useState(true)
+    const [isVideoPlaying, setIsVideoPlaying] = useState(true)
+    const videoRef = useRef(null)
+
+    useEffect(() => {
+        setTimeout(() => setIsLoaded(true), 500)
+    }, [])
+
+    const toggleMute = () => {
+        const video = videoRef.current
+        if (video) {
+            video.muted = !video.muted
+            setIsMuted(video.muted)
+        }
+    }
+
+    const toggleVideo = () => {
+        const video = videoRef.current
+        if (video) {
+            if (video.paused) {
+                video.play()
+                setIsVideoPlaying(true)
+            } else {
+                video.pause()
+                setIsVideoPlaying(false)
+            }
+        }
+    }
+
     return (
         <>
-            <section className="relative bg-black overflow-hidden text-white">
-                {/* Hero Background Video */}
-                <div className="relative aspect-[6/9] sm:aspect-video lg:aspect-[22/9] w-full">
+            <section className="relative w-full bg-black text-white overflow-hidden">
+                {/* Video Container with Aspect Ratio */}
+                <div className="relative aspect-[3/5] lg:aspect-[21/9] w-full">
+                    {/* Background Video */}
                     <video
-                        className="absolute inset-0 w-full h-full object-cover scale-105 brightness-[0.6]"
-                        src="./bgvideo.webm"
+                        ref={videoRef}
+                        id="hero-video"
+                        className="absolute inset-0 w-full h-full object-cover brightness-50 transition-all duration-1000"
+                        src="/bgvideo.webm"
                         autoPlay
                         loop
-                        muted
+                        muted={isMuted}
                         playsInline
+                        poster="/fallback.jpg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
-                </div>
 
-                {/* Floating Hero Content */}
-                <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
-                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between w-full gap-2">
-                        {/* Headline */}
-                        <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent text-left">
-                            SUMMER <br /> COLLECTION
-                        </h1>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10" />
 
-                        <p className='md:hidden mb-4 text-gray-300'>Where comfort meets style. Discover pieces that move with your lifestyle.</p>
+                    {/* Video Controls */}
+                    <div className="absolute top-6 right-6 z-30 flex gap-3">
+                        <button
+                            onClick={toggleVideo}
+                            className="p-2 bg-black/50 backdrop-blur-sm rounded-full hover:bg-black/70 transition-all duration-300 group"
+                        >
+                            {isVideoPlaying ? (
+                                <Pause className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                            ) : (
+                                <Play className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                            )}
+                        </button>
+                        <button
+                            onClick={toggleMute}
+                            className="p-2 bg-black/50 backdrop-blur-sm rounded-full hover:bg-black/70 transition-all duration-300 group"
+                        >
+                            {isMuted ? (
+                                <VolumeX className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                            ) : (
+                                <Volume2 className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                            )}
+                        </button>
+                    </div>
 
-                        {/* CTA Wrapper */}
-                        <div className="w-auto mb-4">
-                            <a
-                                href="/shop"
-                                className="inline-flex items-center justify-center px-8 py-4 text-md sm:text-xl font-semibold bg-gray-50 text-black hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
-                            >
-                                Shop Now
-                                <svg
-                                    className="ml-2 md:ml-2.5 w-4 md:w-5 md:h-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth={2.5}
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </a>
+                    {/* Text Content Bottom Left */}
+                    <div className="absolute bottom-0 left-0 z-20 w-full px-4 sm:px-8 pb-12">
+                        <div
+                            className={`text-left space-y-8 transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                                }`}
+                        >
+                            <div className="space-y-2 flex flex-wrap items-end gap-4 justify-between">
+                                <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight leading-[0.9]">
+                                    <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent animate-pulse">
+                                        SUMMER
+                                    </span>
+                                    <span className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                                        COLLECTION
+                                    </span>
+                                </h1>
+
+                                <button className='mb-3'>
+                                    <a
+                                        href="/shop"
+                                        className="inline-block px-8 py-4 bg-white text-gray-900 font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+                                    >
+                                        SHOP NOW
+                                    </a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
             </section>
+
 
             {/* Featured Collections Section */}
             <section className="bg-gray-100 py-10 md:py-12">

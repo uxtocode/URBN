@@ -19,16 +19,16 @@ const Home = () => {
 
                 {/* Floating Hero Content */}
                 <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-2">
+                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between w-full gap-2">
                         {/* Headline */}
                         <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent text-left">
-                            SUMMER COLLECTION
+                            SUMMER <br /> COLLECTION
                         </h1>
 
                         <p className='md:hidden mb-4 text-gray-300'>Where comfort meets style. Discover pieces that move with your lifestyle.</p>
 
                         {/* CTA Wrapper */}
-                        <div className="w-auto">
+                        <div className="w-auto mb-4">
                             <a
                                 href="/shop"
                                 className="inline-flex items-center justify-center px-8 py-4 text-md sm:text-xl font-semibold bg-gray-50 text-black hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"

@@ -18,12 +18,14 @@ const Home = () => {
                 </div>
 
                 {/* Floating Hero Content */}
-                <div className="absolute bottom-0 left-1 sm:left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-4">
+                <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 py-8 md:py-6 flex justify-center items-center">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-2">
                         {/* Headline */}
                         <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent text-left">
                             SUMMER COLLECTION
                         </h1>
+
+                        <p className='md:hidden mb-4 text-gray-300'>Where comfort meets style. Discover pieces that move with your lifestyle.</p>
 
                         {/* CTA Wrapper */}
                         <div className="w-auto">
@@ -54,11 +56,11 @@ const Home = () => {
             {/* Featured Collections Section */}
             <section className="bg-gray-100 py-10 md:py-12">
                 <div className="px-4 sm:px-8">
-                    <div className='flex flex-col gap-2 mb-6 md:mb-8'>
-                        <h1 className="text-2xl md:text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
+                    <div className='flex flex-col gap-1.5 mb-8'>
+                        <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
                             FEATURED COLLECTIONS
                         </h1>
-                        <p className='text-gray-500'>Curated styles handpicked for every season and mood.</p>
+                        <p className='text-gray-500 text-sm md:text-base'>Curated styles handpicked for every season and mood.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
                         {[
@@ -92,11 +94,11 @@ const Home = () => {
             <section className="bg-gray-50 py-10 md:py-12">
                 <div className="px-4 sm:px-8 ">
                     {/* Headline */}
-                    <div className='flex flex-col gap-2 mb-6 md:mb-8'>
-                        <h1 className="text-2xl md:text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
+                    <div className='flex flex-col gap-1.5 mb-8'>
+                        <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
                             NEW ARRIVALS
                         </h1>
-                        <p className='text-gray-500'>Fresh styles just dropped — discover what’s trending now.
+                        <p className='text-gray-500 text-sm md:text-base'>Fresh styles just dropped — discover what’s trending now.
                         </p>
                     </div>
 
@@ -117,11 +119,11 @@ const Home = () => {
             {/* Shop by Category Section */}
             <section className="bg-gray-100 py-10 md:py-12">
                 <div className="px-4 sm:px-8">
-                    <div className='flex flex-col gap-2 mb-6 md:mb-8'>
-                        <h1 className="text-2xl md:text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
+                    <div className='flex flex-col gap-1.5 mb-8'>
+                        <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent text-left">
                             SHOP BY CATEGORY
                         </h1>
-                        <p className='text-gray-500'>Explore by category for effortless shopping.</p>
+                        <p className='text-gray-500 text-sm md:text-base'>Explore by category for effortless shopping.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
                         {[

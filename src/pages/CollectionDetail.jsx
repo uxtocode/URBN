@@ -135,21 +135,21 @@ export default function CollectionDetail() {
                     </div>
 
                     {/* Product Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {sortedProducts.map((product) => (
                             <div
                                 key={product.id}
                                 className="cursor-pointer"
                                 onClick={() => handleProductClick(product)}
                             >
-                                <div className="overflow-hidden rounded-md mb-4">
+                                <div className="overflow-hidden rounded-md mb-2">
                                     <img
                                         src={product.image}
                                         alt={product.title}
                                         className="w-full aspect-[3/4] object-cover transition-transform duration-300 hover:scale-105"
                                     />
                                 </div>
-                                <h2 className="text-lg font-semibold">{product.title}</h2>
+                                <h2 className="text-sm font-semibold line-clamp-1">{product.title}</h2>
                                 <p className="text-gray-600 mt-1">${product.price.toFixed(2)}</p>
                             </div>
                         ))}

@@ -92,6 +92,11 @@ const Navbar = () => {
           }
         }
       `}</style>
+      <header>
+        <div className="bg-black py-3 text-center text-sm text-white">
+          <p>Free shipping on orders over $50!</p>
+        </div>
+      </header>
       <nav className="relative bg-white shadow-sm" ref={mobileMenuRef}>
         {/* Main Navigation */}
         <div className="flex items-center justify-between px-4 sm:px-8 py-4">

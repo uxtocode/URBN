@@ -36,7 +36,7 @@ const Home = () => {
         <>
             <section className="relative w-full bg-black text-white overflow-hidden">
                 {/* Video Container with Aspect Ratio */}
-                <div className="relative aspect-[3/5] lg:aspect-[21/9] w-full">
+                <div className="relative aspect-[6/9.5] sm:aspect-[3/4] md:aspect-[16/12] lg:aspect-[22.5/9] w-full">
                     {/* Background Video */}
                     <video
                         ref={videoRef}
@@ -106,7 +106,7 @@ const Home = () => {
                                         className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
                                     >
                                         SHOP NOW
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5 ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5 ml-3">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                         </svg>
                                     </a>

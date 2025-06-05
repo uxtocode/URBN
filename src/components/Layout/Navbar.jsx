@@ -1,6 +1,10 @@
 import { Menu, Search, User, Heart, ShoppingBag, X, Plus, Minus } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
+import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -8,6 +12,9 @@ const Navbar = () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const searchRef = useRef(null);
   const mobileMenuRef = useRef(null);
+
+  const navigate = useNavigate();
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -58,22 +65,22 @@ const Navbar = () => {
   const navLinks = [
     {
       name: "COLLECTIONS",
-      href: "#collections",
+      href: "/collections",
       subcategories: ["Summer", "Winter", "Spring", "Fall", "Accessories", "Sale"]
     },
     {
       name: "LADIES",
-      href: "#ladies",
+      href: "/collections/ladies",
       subcategories: ["Dresses", "Tops", "Jeans", "Shoes", "Bags", "Accessories"]
     },
     {
       name: "MEN",
-      href: "#men",
+      href: "/collections/men",
       subcategories: ["T-Shirts", "Shirts", "Jeans", "Shoes", "Jackets", "Accessories"]
     },
     {
       name: "KIDS",
-      href: "#kids",
+      href: "/collections/kids",
       subcategories: ["Boys", "Girls", "Baby", "Shoes", "School Wear", "Toys"]
     }
   ];
@@ -117,7 +124,7 @@ const Navbar = () => {
 
             {/* Logo */}
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              <a href="" onClick={() => setIsMobileMenuOpen(false)}>URBN.</a>
+              <a href="/" onClick={() => setIsMobileMenuOpen(false)}>URBN.</a>
             </h1>
           </div>
 
@@ -130,19 +137,18 @@ const Navbar = () => {
                 onMouseEnter={() => setHoveredCategory(link.name)}
                 onMouseLeave={() => setHoveredCategory(null)}
               >
-                <a
-                  href={link.href}
+                <Link
+                  to={link.href}
                   onClick={() => {
                     setActiveTab(link.name);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`cursor-pointer transition-colors duration-200 hover:text-black ${activeTab === link.name
-                    ? "text-black"
-                    : "text-gray-500"
+                  className={`cursor-pointer transition-colors duration-200 hover:text-black ${activeTab === link.name ? "text-black font-semibold" : "text-gray-600"
                     }`}
                 >
                   {link.name}
-                </a>
+                </Link>
+
 
                 {/* Desktop Dropdown Menu */}
                 {/* {/* <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50 transition-all duration-300 ease-in-out ${hoveredCategory === link.name
@@ -182,17 +188,27 @@ const Navbar = () => {
             {/* User Icon */}
             <User
               className="w-5 h-5 cursor-pointer text-gray-600 hover:text-black transition-colors duration-200"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/profile");
+              }}
             />
 
             {/* Heart - Hidden on small screens */}
             <Heart
               className="w-5 h-5 cursor-pointer text-gray-600 hover:text-black transition-colors duration-200"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/wishlist");
+              }}
             />
 
             {/* Shopping Bag with Badge */}
-            <div className="relative" onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="relative"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/bag");
+              }}>
               <ShoppingBag className="w-5 h-5 cursor-pointer text-gray-600 hover:text-black transition-colors duration-200" />
               <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-medium">
                 2

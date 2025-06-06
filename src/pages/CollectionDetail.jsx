@@ -95,40 +95,37 @@ export default function CollectionDetail() {
                     </div>
 
                     {/* Filters and Sorting */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                         {/* Gender Filter */}
-                        <div className="mb-6">
-                            <div className="flex flex-wrap gap-3">
-                                {["all", "men", "women", "kids"].map((gender) => (
-                                    <label
-                                        key={gender}
-                                        className={`cursor-pointer px-4 py-1.5 rounded-full border text-sm capitalize transition-all
+                        <div className="flex flex-wrap gap-3">
+                            {["all", "men", "women", "kids"].map((gender) => (
+                                <label
+                                    key={gender}
+                                    className={`cursor-pointer px-4 py-1.5 rounded-full border text-sm capitalize transition-all
           ${selectedGender === gender
-                                                ? "bg-black text-white border-black"
-                                                : "bg-white text-gray-700 border-gray-300 hover:border-black"
-                                            }`}
-                                    >
-                                        <input
-                                            type="radio"
-                                            name="gender"
-                                            value={gender}
-                                            checked={selectedGender === gender}
-                                            onChange={() => setSelectedGender(gender)}
-                                            className="hidden"
-                                        />
-                                        {gender}
-                                    </label>
-                                ))}
-                            </div>
+                                            ? "bg-black text-white border-black"
+                                            : "bg-white text-gray-700 border-gray-300 hover:border-black"
+                                        }`}
+                                >
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value={gender}
+                                        checked={selectedGender === gender}
+                                        onChange={() => setSelectedGender(gender)}
+                                        className="hidden"
+                                    />
+                                    {gender}
+                                </label>
+                            ))}
                         </div>
 
-
                         {/* Sort */}
-                        <div className="relative w-full sm:max-w-xs">
+                        <div className="relative w-full md:w-auto">
                             <select
                                 value={sortOption}
                                 onChange={(e) => setSortOption(e.target.value)}
-                                className="w-full appearance-none text-sm sm:text-base border border-gray-300 rounded-md px-4 py-2 pr-10 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-black transition duration-200"
+                                className="w-full md:w-64 appearance-none text-sm sm:text-base border border-gray-300 rounded-md px-4 py-2 pr-10 bg-white text-gray-700 focus:outline-none focus:ring-1 focus:ring-black transition duration-200"
                             >
                                 <option value="featured">Sort by: Featured</option>
                                 <option value="price-low">Price: Low to High</option>
@@ -149,10 +146,8 @@ export default function CollectionDetail() {
                                 </svg>
                             </div>
                         </div>
-
-
-
                     </div>
+
 
                     {/* Product Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 space-y-4">

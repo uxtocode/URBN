@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("MEN");
+  const [activeTab, setActiveTab] = useState();
   const [expandedCategory, setExpandedCategory] = useState(null);
   const searchRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -70,35 +70,23 @@ const Navbar = () => {
     },
     {
       name: "LADIES",
-      href: "/collections/ladies",
+      href: "/",
       subcategories: ["Dresses", "Tops", "Jeans", "Shoes", "Bags", "Accessories"]
     },
     {
       name: "MEN",
-      href: "/collections/men",
+      href: "/",
       subcategories: ["T-Shirts", "Shirts", "Jeans", "Shoes", "Jackets", "Accessories"]
     },
     {
       name: "KIDS",
-      href: "/collections/kids",
+      href: "/category/kids",
       subcategories: ["Boys", "Girls", "Baby", "Shoes", "School Wear", "Toys"]
     }
   ];
 
   return (
     <>
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
       <header>
         <div className="bg-black py-3 text-center text-sm text-white">
           <p>Free shipping on orders over $50!</p>

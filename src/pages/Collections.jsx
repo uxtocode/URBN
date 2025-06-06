@@ -24,8 +24,8 @@ const Collections = () => {
                     <div className="grid grid-cols-2">
                         {[
                             {
-                                name: "Summer '25 Collection",
-                                slug: 'summer-25-collection',
+                                name: "Summer Collection",
+                                slug: 'summer-collection',
                                 image: './tops.avif',
                             },
                             {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react'
-
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
+    const navigate = useNavigate()
     const [isLoaded, setIsLoaded] = useState(false)
     const [isMuted, setIsMuted] = useState(true)
     const [isVideoPlaying, setIsVideoPlaying] = useState(true)
@@ -31,6 +31,54 @@ const Home = () => {
             }
         }
     }
+
+    const mensItems = [
+        // Featured Collections
+        {
+            type: 'featured',
+            name: 'Streetwear',
+            image: '/assets/Men/Featured_Collections/streetwear.webp'
+        },
+        {
+            type: 'featured',
+            name: 'Casual Essentials',
+            image: '/assets/Men/Featured_Collections/casuals.webp'
+        },
+        {
+            type: 'featured',
+            name: 'Suits',
+            image: '/assets/Men/Featured_Collections/suits.avif'
+        },
+        {
+            type: 'featured',
+            name: 'Lounge & Chill',
+            image: '/assets/Men/Featured_Collections/chill.webp'
+        },
+
+        // New Arrivals
+        { type: 'new', name: 'New Arrival 1', image: '/assets/Men/New_Arrivals/1.avif' },
+        { type: 'new', name: 'New Arrival 2', image: '/assets/Men/New_Arrivals/2.avif' },
+        { type: 'new', name: 'New Arrival 3', image: '/assets/Men/New_Arrivals/3.avif' },
+        { type: 'new', name: 'New Arrival 4', image: '/assets/Men/New_Arrivals/4.avif' },
+        { type: 'new', name: 'New Arrival 5', image: '/assets/Men/New_Arrivals/5.avif' },
+        { type: 'new', name: 'New Arrival 6', image: '/assets/Men/New_Arrivals/6.avif' },
+        { type: 'new', name: 'New Arrival 7', image: '/assets/Men/New_Arrivals/7.avif' },
+        { type: 'new', name: 'New Arrival 8', image: '/assets/Men/New_Arrivals/8.avif' },
+        { type: 'new', name: 'New Arrival 9', image: '/assets/Men/New_Arrivals/9.avif' },
+        { type: 'new', name: 'New Arrival 10', image: '/assets/Men/New_Arrivals/10.avif' },
+        { type: 'new', name: 'New Arrival 11', image: '/assets/Men/New_Arrivals/11.avif' },
+        { type: 'new', name: 'New Arrival 12', image: '/assets/Men/New_Arrivals/12.avif' },
+
+        // Categories
+        { type: 'category', name: 'T-Shirts', image: '/assets/Men/Categories/t-shirt.avif' },
+        { type: 'category', name: 'Shirts', image: '/assets/Men/Categories/shirt.avif' },
+        { type: 'category', name: 'Jeans', image: '/assets/Men/Categories/jeans.avif' },
+        { type: 'category', name: 'Trousers', image: '/assets/Men/Categories/trousers.avif' },
+        { type: 'category', name: 'Shorts', image: '/assets/Men/Categories/shorts.avif' },
+        { type: 'category', name: 'Jackets', image: '/assets/Men/Categories/jackets.avif' },
+        { type: 'category', name: 'Sweaters', image: '/assets/Men/Categories/sweaters.avif' },
+        { type: 'category', name: 'Hoodies', image: '/assets/Men/Categories/hoodies.avif' }
+      ];
 
     return (
         <>
@@ -102,7 +150,9 @@ const Home = () => {
 
                                 <button className='md:mb-3'>
                                     <a
-                                        href="/shop"
+                                        href="/collections/summer-collection"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
                                     >
                                         SHOP NOW
@@ -128,13 +178,11 @@ const Home = () => {
                         <p className='text-gray-500 text-sm md:text-base'>Curated styles handpicked for every season and mood.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
-                        {[
-                            { name: 'TOPS', image: './tops.avif' },
-                            { name: 'TROUSERS', image: './trousers.avif' },
-                            { name: 'DRESS', image: './dress.avif' },
-                            { name: 'SHOES', image: './shoes.avif' }
-                        ].map((category) => (
-                            <div key={category.name} className='cursor-pointer'>
+                        {mensItems.filter(item => item.type === 'featured').map((category) => (
+                            <div
+                                key={category.name}
+                                onClick={() => navigate(`/collections/${category.name.toLowerCase()}`)}
+                                className='cursor-pointer'>
                                 {/* Category Card */}
                                 <div className='group cursor-pointer'>
                                     <div className='overflow-hidden'>
@@ -145,7 +193,7 @@ const Home = () => {
                                         />
                                     </div>
                                     <div className='px-0 md:px-2 py-4 flex flex-col gap-1'>
-                                        <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
+                                        <p className='text-sm group-hover:underline md:text-base font-medium uppercase'>{category.name}</p>
                                         <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
                                     </div>
                                 </div>
@@ -169,10 +217,11 @@ const Home = () => {
 
                     {/* New Arrivals Grid */}
                     <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
+                        {mensItems.filter(item => item.type === 'new').map((item) => (
                             <img
-                                key={item}
-                                src={`./` + item + `.avif`}
+                                key={item.name}
+                                onClick={() => navigate(`/new-arrivals/men/${item.name.toLowerCase()}`)}
+                                src={`${item.image}`}
                                 alt={`New arrival ${item}`}
                                 className='cursor-pointer hover:opacity-90 transition-opacity duration-300'
                             />
@@ -191,13 +240,11 @@ const Home = () => {
                         <p className='text-gray-500 text-sm md:text-base'>Explore by category for effortless shopping.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
-                        {[
-                            { name: 'TOPS', image: './tops.avif' },
-                            { name: 'TROUSERS', image: './trousers.avif' },
-                            { name: 'DRESS', image: './dress.avif' },
-                            { name: 'SHOES', image: './shoes.avif' }
-                        ].map((category) => (
-                            <div key={category.name} className='cursor-pointer'>
+                        {mensItems.filter(item => item.type === 'category').map((category) => (
+                            <div
+                                key={category.name}
+                                onClick={() => navigate(`/category/men/${category.name.toLowerCase()}`)}
+                                className='cursor-pointer'>
                                 {/* Category Card */}
                                 <div className='group cursor-pointer'>
                                     <div className='overflow-hidden'>
@@ -208,7 +255,7 @@ const Home = () => {
                                         />
                                     </div>
                                     <div className='px-0 md:px-2 pt-4 pb-2 flex flex-col gap-1'>
-                                        <p className='text-sm group-hover:underline md:text-base font-medium'>{category.name}</p>
+                                        <p className='text-sm group-hover:underline md:text-base font-medium uppercase'>{category.name}</p>
                                         <a href="/" className='text-xs md:text-sm'>EXPLORE</a>
                                     </div>
                                 </div>

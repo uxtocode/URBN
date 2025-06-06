@@ -90,7 +90,7 @@ const Home = () => {
                         ref={videoRef}
                         id="hero-video"
                         className="absolute inset-0 w-full h-full object-cover brightness-50 transition-all duration-1000"
-                        src="/bgvideo.webm"
+                        src="/assets/Ladies/bgvideo.webm"
                         autoPlay
                         loop
                         muted={isMuted}
